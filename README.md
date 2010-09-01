@@ -2,6 +2,7 @@ Rails 3 Template
 ================
 
 This template includes:
+
 * RSpec
 * Cucumber
 * Factory Girl
