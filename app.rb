@@ -5,16 +5,21 @@ RVMRC
 
 create_file ".rvmrc", rvmrc
 
-gem "factory_girl_rails", ">= 1.0.0", :group => :test
-gem "factory_girl_generator", ">= 0.0.1", :group => [:test, :development]
-gem "haml-rails", ">= 0.0.2"
-gem "rspec-rails", ">= 2.0.0.beta.12", :group => :test
+gem "capybara", ">= 0.3.8", :group => [:test, :cucumber]
+gem "cucumber-rails", ">= 0.3.2", :group => [:test, :cucumber]
+gem "database_cleaner", ">= 0.5.2", :group => [:test, :cucumber]
+gem "factory_girl_rails", ">= 1.0.0", :group => [:test, :cucumber]
+gem "factory_girl_generator", ">= 0.0.1", :group => [:test, :cucumber, :development]
+gem "rcov", ">= 0.9.8", :group => [:test]
+gem "rspec-rails", ">= 2.0.0.beta.20", :group => [:test, :cucumber, :development]
+gem "spork", ">= 0.8.4", :group => [:test, :cucumber]
+gem "devise"
 
 generators = <<-GENERATORS
-
     config.generators do |g|
       g.test_framework :rspec, :fixture => true, :views => false
-      g.integration_tool :rspec, :fixture => true, :views => true
+      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+      g.intergration_tool :rspec
     end
 GENERATORS
 
@@ -38,23 +43,25 @@ layout = <<-LAYOUT
     = yield
 LAYOUT
 
-remove_file "app/views/layouts/application.html.erb"
-create_file "app/views/layouts/application.html.haml", layout
-
 create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
 git :init
 git :add => "."
 
+run 'bundle install'
+generate 'rspec:install'
+generate 'cucumber:install --rspec --capybara'
+
 docs = <<-DOCS
 
 Run the following commands to complete the setup of #{app_name.humanize}:
 
-% cd #{app_name}
-% gem install bundler --pre
-% bundle install
-% script/rails generate rspec:install
+cd #{app_name}
+gem install bundler --pre
+bundle install
+script/rails generate rspec:install
+script/rails generate cucumber:install --rspec --capybara
 
 DOCS
 
