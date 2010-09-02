@@ -46,23 +46,37 @@ LAYOUT
 create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
+defaultrake = %q(
+Rake::TaskManager.class_eval do
+  def remove_task(task_name)
+    @tasks.delete(task_name.to_s)
+  end
+end
+
+Rake.application.remove_task('default')
+
+task :default => [:'spec:rcov', :verify_rcov, :cucumber]
+
+task :verify_rcov do
+  total_coverage = 0
+
+  File.open('coverage/index.html').each_line do |line|
+    if line =~ /<tt class='coverage_total'>\s*(\d+\.\d+)%\s*<\/tt>/
+      total_coverage = $1.to_f
+      break
+    end
+  end
+  puts "Coverage: #{total_coverage}%"
+  raise "Coverage must be at least 100% but was #{total_coverage}%" if total_coverage < 100
+end
+)
+
+rakefile 'default.rake', defaultrake
+
+run 'bundle install'
+
 git :init
 git :add => "."
 
-run 'bundle install'
 generate 'rspec:install'
 generate 'cucumber:install --rspec --capybara'
-
-docs = <<-DOCS
-
-Run the following commands to complete the setup of #{app_name.humanize}:
-
-cd #{app_name}
-gem install bundler --pre
-bundle install
-script/rails generate rspec:install
-script/rails generate cucumber:install --rspec --capybara
-
-DOCS
-
-log docs
