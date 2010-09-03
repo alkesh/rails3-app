@@ -13,7 +13,10 @@ gem "factory_girl_generator", ">= 0.0.1", :group => [:test, :cucumber, :developm
 gem "rcov", ">= 0.9.8", :group => [:test]
 gem "rspec-rails", ">= 2.0.0.beta.20", :group => [:test, :cucumber, :development]
 gem "spork", ">= 0.8.4", :group => [:test, :cucumber]
+gem "shoulda", :group => [:test]
 gem "devise"
+gem "inherited_resources", ">= 1.1.2"
+gem "formtastic", "1.1.0.beta"
 
 generators = <<-GENERATORS
     config.generators do |g|
@@ -75,8 +78,10 @@ rakefile 'default.rake', defaultrake
 
 run 'bundle install'
 
+generate 'rspec:install'
+generate 'cucumber:install --rspec --capybara'
+
+append_file ".gitignore", "coverage\n*.swp"
 git :init
 git :add => "."
 
-generate 'rspec:install'
-generate 'cucumber:install --rspec --capybara'
