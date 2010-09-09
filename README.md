@@ -3,10 +3,13 @@ Rails 3 Template
 
 This template includes:
 
-* RSpec
 * Cucumber
 * Factory Girl
+* Formtastic
+* Inherited Resources
 * JQuery
+* RSpec
+* Shoulda
 
 Easily generate a Rails 3 application with the obove in one line:
 
@@ -37,8 +40,3 @@ git
 ---
 
 We love `git`, so the application has a git repo initialized with all the initial changes staged.
-
-Wrap Up
--------
-
-After the application has been generated, there are a few final command to finish the install, check the output!
