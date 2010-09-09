@@ -16,7 +16,7 @@ gem "spork", ">= 0.8.4", :group => [:test, :cucumber]
 gem "shoulda", :group => [:test]
 gem "devise"
 gem "inherited_resources", ">= 1.1.2"
-gem "formtastic", "1.1.0.beta"
+gem "formtastic", ">= 1.1.0"
 
 generators = <<-GENERATORS
     config.generators do |g|
