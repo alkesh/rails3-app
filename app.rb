@@ -49,32 +49,9 @@ LAYOUT
 create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
-defaultrake = %q(
-Rake::TaskManager.class_eval do
-  def remove_task(task_name)
-    @tasks.delete(task_name.to_s)
-  end
-end
 
-Rake.application.remove_task('default')
-
-task :default => [:'spec:rcov', :verify_rcov, :cucumber]
-
-task :verify_rcov do
-  total_coverage = 0
-
-  File.open('coverage/index.html').each_line do |line|
-    if line =~ /<tt class='coverage_total'>\s*(\d+\.\d+)%\s*<\/tt>/
-      total_coverage = $1.to_f
-      break
-    end
-  end
-  puts "Coverage: #{total_coverage}%"
-  raise "Coverage must be at least 100% but was #{total_coverage}%" if total_coverage < 100
-end
-)
-
-rakefile 'default.rake', defaultrake
+get "http://gist.github.com/raw/571915/66a7f56abd440201f9db36bfa83a200308faa8a5/rails3%20default.rake", "lib/tasks/default.rake"
+get "http://gist.github.com/raw/571911/293658b28b2cf213b3782eca5f2dae0075aadeff/db_migrate_all.rake", "lib/tasks/db_migrate_all.rake"
 
 run 'bundle install'
 
