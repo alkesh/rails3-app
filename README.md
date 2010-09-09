@@ -27,7 +27,7 @@ Generators
 This also gives you the Factory Girl generators &mdash; the
 generators for RSpec are in the RSpec gem &mdash; so that your factories
 are generated using Factory Girl , and that all your generated
-tests are specs. These generators are from the 
+tests are specs. These generators are from the
 [factory_girl_generator](http://github.com/leshill/factory_girl_generator) gems.
 
 JavaScript Includes
