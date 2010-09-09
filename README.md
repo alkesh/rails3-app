@@ -11,7 +11,7 @@ This template includes:
 * RSpec
 * Shoulda
 
-Easily generate a Rails 3 application with the obove in one line:
+Easily generate a Rails 3 application with the above in one line:
 
     % rails new my_app -J -T -m \
     http://github.com/leshill/rails3-app/raw/master/app.rb
