@@ -5,6 +5,7 @@ This template includes:
 
 * Cucumber
 * Factory Girl
+* Flutie
 * Formtastic
 * Inherited Resources
 * JQuery

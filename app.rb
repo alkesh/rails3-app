@@ -17,6 +17,7 @@ gem "shoulda", :group => [:test]
 gem "devise"
 gem "inherited_resources", ">= 1.1.2"
 gem "formtastic", ">= 1.1.0"
+gem "flutie"
 
 generators = <<-GENERATORS
     config.generators do |g|
@@ -57,7 +58,7 @@ run 'bundle install'
 
 generate 'rspec:install'
 generate 'cucumber:install --rspec --capybara'
-generate 'formtastic:install'
+generate 'flutie:install'
 
 append_file ".gitignore", "coverage\n*.swp"
 git :init
