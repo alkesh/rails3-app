@@ -7,7 +7,6 @@ This template includes:
 * Factory Girl
 * Flutie
 * Formtastic
-* Inherited Resources
 * JQuery
 * RSpec
 * Shoulda
