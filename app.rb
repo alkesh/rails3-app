@@ -50,7 +50,7 @@ create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
 
-get "http://gist.github.com/raw/571915/66a7f56abd440201f9db36bfa83a200308faa8a5/rails3%20default.rake", "lib/tasks/default.rake"
+get "http://github.com/alkesh/rails3-app/raw/master/default.rake", "lib/tasks/default.rake"
 get "http://gist.github.com/raw/571911/293658b28b2cf213b3782eca5f2dae0075aadeff/db_migrate_all.rake", "lib/tasks/db_migrate_all.rake"
 
 run 'bundle install'
