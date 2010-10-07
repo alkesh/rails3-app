@@ -59,7 +59,7 @@ generate 'rspec:install'
 generate 'cucumber:install --rspec --capybara'
 generate 'flutie:install'
 
-append_file ".gitignore", "coverage\n*.swp\ndb/schema.rb\nTAGS"
+append_file ".gitignore", "coverage\n*.swp\ndb/schema.rb\nTAGS\nconfig/environments/production.rb\nall.js\nall.css\nvendor/bundle"
 git :init
 git :add => "."
 
