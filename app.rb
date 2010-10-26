@@ -51,7 +51,7 @@ create_file "tmp/.gitkeep"
 
 
 get "http://github.com/alkesh/rails3-app/raw/master/default.rake", "lib/tasks/default.rake"
-get "http://gist.github.com/raw/571911/293658b28b2cf213b3782eca5f2dae0075aadeff/db_migrate_all.rake", "lib/tasks/db_migrate_all.rake"
+get "http://github.com/alkesh/rails3-app/raw/master/rspec.rake", "lib/tasks/rspec.rake"
 
 run 'bundle install'
 
@@ -62,4 +62,3 @@ generate 'flutie:install'
 append_file ".gitignore", "coverage\n*.swp\ndb/schema.rb\nTAGS\nconfig/environments/production.rb\nall.js\nall.css\nvendor/bundle"
 git :init
 git :add => "."
-

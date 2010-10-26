@@ -10,7 +10,9 @@ Rake.application.remove_task('default')
 
 CLEAN.include %w(log/** tmp/** coverage)
 
-task :default => [:clean, :'db:migrate', :'spec:rcov', :verify_rcov, :cucumber, :ok]
+ENV['CC_BUILD_ARTIFACTS'] ||= File.expand_path("#{Rails.root.to_s}/log")
+
+task :default => [:clean, :'db:migrate', :'db:test:prepare', :'spec_with_rcov', :verify_rcov, :"cucumber", :ok]
 
 task :verify_rcov do
   total_coverage = 0
