@@ -14,12 +14,12 @@ This template includes:
 Easily generate a Rails 3 application with the above in one line:
 
     % rails new my_app -J -T -m \
-    https://github.com/alkesh/rails3-app/raw/master/app.rb
+    http://github.com/alkesh/rails3-app/raw/master/app.rb
 
 rvm
 ---
 
-We love `rvm`, so the application has an `.rvmrc` generated to specify a gemset.
+The application has an `.rvmrc` generated to specify a gemset.
 
 Generators
 ----------
