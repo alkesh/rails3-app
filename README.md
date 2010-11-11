@@ -14,7 +14,7 @@ This template includes:
 Easily generate a Rails 3 application with the above in one line:
 
     % rails new my_app -J -T -m \
-    http://github.com/alkesh/rails3-app/raw/master/app.rb
+    https://github.com/alkesh/rails3-app/raw/master/app.rb
 
 rvm
 ---

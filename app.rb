@@ -50,8 +50,8 @@ create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
 
-get "http://github.com/alkesh/rails3-app/raw/master/default.rake", "lib/tasks/default.rake"
-get "http://github.com/alkesh/rails3-app/raw/master/rspec.rake", "lib/tasks/rspec.rake"
+get "https://github.com/alkesh/rails3-app/raw/master/default.rake", "lib/tasks/default.rake"
+get "https://github.com/alkesh/rails3-app/raw/master/rspec.rake", "lib/tasks/rspec.rake"
 
 run 'bundle install'
 
