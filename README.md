@@ -11,10 +11,14 @@ This template includes:
 * RSpec
 * Shoulda
 
-Easily generate a Rails 3 application with the above in one line:
+Download the app.rb file, and then easily generate a Rails 3 application with the above in one line:
+
+    % rails new my_app -J -T -m app.rb
+
+(Due to [a bug][https://rails.lighthouseapp.com/projects/8994/tickets/5926] in rails, it is not currently possible to do the following:
 
     % rails new my_app -J -T -m \
-    http://github.com/alkesh/rails3-app/raw/master/app.rb
+    https://github.com/alkesh/rails3-app/raw/master/app.rb
 
 rvm
 ---
