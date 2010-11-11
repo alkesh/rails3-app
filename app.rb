@@ -22,7 +22,7 @@ generators = <<-GENERATORS
     config.generators do |g|
       g.test_framework :rspec, :fixture => true, :views => false
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
-      g.intergration_tool :rspec
+      g.integration_tool :rspec
     end
 GENERATORS
 
