@@ -11,7 +11,7 @@ gem "database_cleaner", ">= 0.5.2", :group => [:test, :cucumber]
 gem "factory_girl_rails", ">= 1.0.0", :group => [:test, :cucumber]
 gem "factory_girl_generator", ">= 0.0.1", :group => [:test, :cucumber, :development]
 gem "rcov", ">= 0.9.8", :group => [:test]
-gem "rspec-rails", ">= 2.0.0.beta.20", :group => [:test, :cucumber, :development]
+gem "rspec-rails", ">= 2.3.0", :group => [:test, :cucumber, :development]
 gem "spork", ">= 0.8.4", :group => [:test, :cucumber]
 gem "shoulda", :group => [:test]
 gem "devise"
@@ -30,7 +30,7 @@ application generators
 
 get "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js",  "public/javascripts/jquery.js"
 get "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "public/javascripts/jquery-ui.js"
-get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
+get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
 
 gsub_file 'config/application.rb', 'config.action_view.javascript_expansions[:defaults] = %w()', 'config.action_view.javascript_expansions[:defaults] = %w(jquery.js jquery-ui.js rails.js)'
 
@@ -53,12 +53,14 @@ create_file "tmp/.gitkeep"
 get "https://github.com/alkesh/rails3-app/raw/master/default.rake", "lib/tasks/default.rake"
 get "https://github.com/alkesh/rails3-app/raw/master/rspec.rake", "lib/tasks/rspec.rake"
 
-run 'bundle install'
-
-generate 'rspec:install'
-generate 'cucumber:install --rspec --capybara'
-generate 'flutie:install'
-
 append_file ".gitignore", "coverage\n*.swp\ndb/schema.rb\nTAGS\nconfig/environments/production.rb\nall.js\nall.css\nvendor/bundle"
 git :init
 git :add => "."
+
+puts "Now run the following commands:"
+puts "cd #{app_name}"
+puts "gem install bundler"
+puts "bundle install"
+puts "rails g rspec:install"
+puts "rails g cucumber:install --rspec --capybara"
+puts "rake flutie:install"

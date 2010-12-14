@@ -15,6 +15,11 @@ Download the app.rb file, and then easily generate a Rails 3 application with th
 
     % rails new my_app -J -T -m app.rb
 
+Once this has completed - cd to your new application's directory,
+and run the following:
+
+    % bundle install
+
 (Due to [a bug](https://rails.lighthouseapp.com/projects/8994/tickets/5926) in rails, it is not currently possible to do the following:
 
     % rails new my_app -J -T -m \
