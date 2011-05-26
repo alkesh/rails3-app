@@ -12,7 +12,32 @@ RVMRC
 say "creating .rvmrc file"
 create_file ".rvmrc", rvmrc
 
-get "https://github.com/alkesh/rails3-app/raw/master/files/Gemfile", "Gemfile"
+gem 'rake', '0.8.7' #v0.9.0 breaks the flutie generator
+gem "flutie"
+gem "formtastic"
+
+
+append_file 'Gemfile' do <<-GEMFILE
+group :development, :test do
+  gem "capybara"
+  gem "cucumber-rails"
+  gem "database_cleaner"
+  gem "factory_girl_rails"
+  gem "factory_girl_generator"
+  gem "fuubar"
+  gem "fuubar-cucumber"
+  gem 'hoe'
+  gem "launchy"
+  gem "rcov"
+  gem "rspec-rails"
+  gem "ruby-debug"
+  gem "nimboids-shoulda", :require => "shoulda"
+  gem "timecop"
+  gem "webmock", :require => nil
+  gem "wirble"
+end
+GEMFILE
+end
 
 generators = <<-GENERATORS
     config.generators do |g|
@@ -46,8 +71,8 @@ create_file "log/.gitkeep"
 create_file "tmp/.gitkeep"
 
 
-get "https://github.com/alkesh/rails3-app/raw/master/default.rake", "lib/tasks/default.rake"
-get "https://github.com/alkesh/rails3-app/raw/master/rspec.rake", "lib/tasks/rspec.rake"
+get "https://github.com/alkesh/rails3-app/raw/master/files/default.rake", "lib/tasks/default.rake"
+get "https://github.com/alkesh/rails3-app/raw/master/files/rspec.rake", "lib/tasks/rspec.rake"
 
 append_file ".gitignore", "coverage\n*.swp\ndb/schema.rb\nTAGS\nconfig/environments/production.rb\nall.js\nall.css\nvendor/bundle"
 git :init
