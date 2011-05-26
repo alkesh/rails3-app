@@ -25,6 +25,8 @@ and run the following:
     % rails new my_app -J -T -m \
     https://github.com/alkesh/rails3-app/raw/master/app.rb
 
+This will be fixed in rails 3.0.5
+
 rvm
 ---
 

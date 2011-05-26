@@ -1,22 +1,18 @@
+say "Remove unwanted files"
+
+remove_file "README"
+remove_file "public/index.html"
+remove_file "public/images/rails.png"
+
 rvmrc = <<-RVMRC
 rvm_gemset_create_on_use_flag=1
 rvm gemset use #{app_name}
 RVMRC
 
+say "creating .rvmrc file"
 create_file ".rvmrc", rvmrc
 
-gem "capybara", ">= 0.3.8", :group => [:test, :cucumber]
-gem "cucumber-rails", ">= 0.3.2", :group => [:test, :cucumber]
-gem "database_cleaner", ">= 0.5.2", :group => [:test, :cucumber]
-gem "factory_girl_rails", ">= 1.0.0", :group => [:test, :cucumber]
-gem "factory_girl_generator", ">= 0.0.1", :group => [:test, :cucumber, :development]
-gem "rcov", ">= 0.9.8", :group => [:test]
-gem "rspec-rails", ">= 2.3.0", :group => [:test, :cucumber, :development]
-gem "spork", ">= 0.8.4", :group => [:test, :cucumber]
-gem "shoulda", :group => [:test]
-gem "devise"
-gem "formtastic", ">= 1.1.0"
-gem "flutie"
+get "https://github.com/alkesh/rails3-app/raw/master/files/Gemfile", "Gemfile"
 
 generators = <<-GENERATORS
     config.generators do |g|

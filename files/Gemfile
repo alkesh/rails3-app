@@ -1,0 +1,31 @@
+source 'http://rubygems.org'
+
+gem 'rails', '3.0.7'
+gem 'rake', '0.8.7'
+
+gem "flutie"
+gem "formtastic", "~>1.1.0"
+gem 'sqlite3'
+
+group :development, :test do
+  gem "akephalos"
+  gem "autotest"
+  gem "autotest-growl"
+  gem "capybara"
+  gem "cucumber-rails"
+  gem "database_cleaner"
+  gem "devise"
+  gem "factory_girl_rails"
+  gem "factory_girl_generator"
+  gem "fuubar"
+  gem "fuubar-cucumber"
+  gem 'hoe', '2.8.0' # newer versions need newer rubygems
+  gem "launchy"
+  gem "rcov"
+  gem "rspec-rails"
+  gem "ruby-debug"
+  gem "nimboids-shoulda", :require => "shoulda"
+  gem "timecop"
+  gem "webmock", :require => nil
+  gem "wirble"
+end
